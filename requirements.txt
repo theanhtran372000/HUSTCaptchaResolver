@@ -1,0 +1,8 @@
+vietocr
+PyYAML
+loguru
+pillow
+selenium
+webdriver-manager
+numpy==1.23.1
+streamlit

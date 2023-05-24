@@ -1,0 +1,21 @@
+name: hustcaptcha
+dir: dataset
+sources:
+  cttsis:
+    url: https://ctt-sis.hust.edu.vn/Account/Login.aspx
+    id: ctl00_ctl00_contentPane_MainPanel_MainContent_ASPxCaptcha1_IMG
+    amount: 10000
+    start_index: 9465
+  dksis:
+    url: https://dk-sis.hust.edu.vn/Users/Login.aspx
+    id: ccCaptcha_IMG
+    amount: 10000
+    start_index: 0
+
+selenium:
+  headless: True
+  max_size: True
+  n_zeros: 6
+  delta: 0.1
+
+label_api: https://hcr.tuana9a.com

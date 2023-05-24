@@ -1,0 +1,17 @@
+train:
+  dataset:
+    name: hustcaptcha
+    data_root: dataset/hustcaptcha
+    train_anno: train_labels.txt
+    valid_anno: valid_labels.txt
+    num_workers: 0
+  trainer:
+    print_every: 1
+    valid_every: 500
+    iters: 2000
+    export: checkpoints/hustocr.pth
+    metrics: 4000
+    pretrained: True
+  device: cuda:0
+  vocab: 0123456789
+  save_config_to: configs/train_configs.yml
