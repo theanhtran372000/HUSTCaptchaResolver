@@ -37,13 +37,15 @@ if __name__ == '__main__':
     'valid_every': configs['trainer']['valid_every'],
     'iters': configs['trainer']['iters'],
     'export': configs['trainer']['export'],
-    'metrics': configs['trainer']['metrics']
+    'metrics': configs['trainer']['metrics'],
+    'batch_size': configs['trainer']['batch_size']
   }
 
   train_configs['trainer'].update(trainer_params)
   train_configs['dataset'].update(dataset_params)
   train_configs['device'] = configs['device']
   train_configs['vocab'] = configs['vocab']
+  train_configs['optimizer']['max_lr'] = configs['optimizer']['max_lr']
   train_configs['dataloader']['num_workers'] = configs['dataset']['num_workers']
   
   logger.info('Train configs: \n' + pprint.pformat(train_configs))
@@ -56,8 +58,4 @@ if __name__ == '__main__':
   logger.info('Start training ...')
   start = time.time()
   trainer.train()
-  
-  # Final evaluation
-  acc_full_seq, acc_per_char = trainer.precision()
-  logger.info('Full seq accuracy: {:.4f} - Per character accuracy: {:.4f}'.format(acc_full_seq, acc_per_char))
   logger.success('Done after {:.2f}s'.format(time.time() - start))

@@ -6,12 +6,20 @@ train:
     valid_anno: valid_labels.txt
     num_workers: 0
   trainer:
-    print_every: 1
-    valid_every: 500
-    iters: 2000
-    export: checkpoints/hustocr.pth
-    metrics: 4000
-    pretrained: True
+    print_every: 10
+    valid_every: 100
+    batch_size: 128
+    iters: 10_000
+    export: checkpoints/hustocr.12.6.23.pth
+    metrics: 2_000
+    pretrained: False
+  optimizer:
+    max_lr: 0.0003
   device: cuda:0
-  vocab: 0123456789
-  save_config_to: configs/train_configs.yml
+  vocab: 023456789
+  save_config_to: configs/configs.example.yml
+
+infer:
+  weights: checkpoints/hustocr.12.6.23-lr0.0003-0.9927.pth
+  device: cpu
+  config: configs/configs.example.yml

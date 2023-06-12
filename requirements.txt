@@ -6,3 +6,5 @@ selenium
 webdriver-manager
 numpy==1.23.1
 streamlit
+Flask
+flask_cors

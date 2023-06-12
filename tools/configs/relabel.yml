@@ -1,4 +1,4 @@
 root_dir: dataset/hustcaptcha
 label_file: labels.txt
 new_label_file: new_labels.txt
-img_per_page: 10
+img_per_page: 100

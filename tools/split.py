@@ -6,6 +6,7 @@ from loguru import logger
 def get_parser():
   parser = argparse.ArgumentParser()
   
+  parser.add_argument('--seed', type=int, default=2023, help='Random seed')
   parser.add_argument('--input_path', type=str, required=True, help='Path to input label file')
   parser.add_argument('--train_path', type=str, required=True, help='Path to output train label file')
   parser.add_argument('--valid_path', type=str, required=True, help='Path to output valid label file')
@@ -24,6 +25,7 @@ if __name__ == '__main__':
   logger.info('Read {} samples from {}'.format(len(lines), args.input_path))  
   
   # Shuffle samples
+  random.seed(args.seed)
   random.shuffle(lines)
   
   # Split

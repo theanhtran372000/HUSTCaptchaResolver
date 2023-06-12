@@ -48,14 +48,14 @@ pretrain: https://vocr.vn/data/vietocr/vgg_transformer.pth
 quiet: false
 seq_modeling: transformer
 trainer:
-  batch_size: 32
+  batch_size: 128
   checkpoint: ./checkpoint/transformerocr_checkpoint.pth
-  export: checkpoints/hustocr.pth
-  iters: 2000
+  export: checkpoints/hustocr.12.6.23.pth
+  iters: 10000
   log: ./train.log
-  metrics: 4000
-  print_every: 1
-  valid_every: 500
+  metrics: 2000
+  print_every: 10
+  valid_every: 100
 transformer:
   d_model: 256
   dim_feedforward: 2048
@@ -65,5 +65,5 @@ transformer:
   num_encoder_layers: 6
   pos_dropout: 0.1
   trans_dropout: 0.1
-vocab: 0123456789
+vocab: 023456789
 weights: https://vocr.vn/data/vietocr/vgg_transformer.pth
